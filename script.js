@@ -7,14 +7,19 @@ function escrever(mensagem){
 
 function identificar(){
     let valor = parseFloat(document.querySelector("#numero").value);
-    if(!numeros.includes(valor)){
-        numeros.push(valor);
-        let conjunto = new Set(numeros);
-        let listaNumerosUnicos = Array.from(conjunto);
-        escrever("Valores únicos: " + listaNumerosUnicos.slice(0, 10));
+    if(isNaN(valor)){
+        alert("Digite um número válido");
     }
     else{
-        alert("Número repetido");
+        if(!numeros.includes(valor)){
+            numeros.push(valor);
+            let conjunto = new Set(numeros);
+            let listaNumerosUnicos = Array.from(conjunto);
+            escrever("Valores únicos: " + listaNumerosUnicos.slice(0,10));
+        }
+        else{
+            alert("Número repetido");
+        }
     }
 }
 
